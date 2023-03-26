@@ -143,7 +143,7 @@ INSERT INTO `tblpages` (`id`, `type`, `detail`) VALUES
 -- --------------------------------------------------------
 
 
--- Table structure for table `tbltourpackages`
+-- Table structure for table `tbltourpackages` this is
 --
 
 CREATE TABLE `tbltourpackages` (
