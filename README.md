@@ -3,11 +3,12 @@
 ![php (tag)](https://img.shields.io/badge/php-8.2-yellowgreen)
 ![mariadb (tag)](https://img.shields.io/badge/MariaDB-10.11.2-red)
 ![xampp (tag)](https://img.shields.io/badge/XAMPP-8.2.4-blue)
+![java-script (tag)](https://img.shields.io/badge/javascript-ES6-green)
 ![css_framework (tag)](https://img.shields.io/badge/vanilla-css-orange)
+![boot-strap (tag)](https://img.shields.io/badge/bootstrap-4-yellow)
 ![top_lang (tag)](https://img.shields.io/github/languages/top/afsanhq99/CSE471-Project)
 ![last_commit (tag)](https://img.shields.io/github/last-commit/afsanhq99/CSE471-Project)
 ![total_contributor (tag)](https://img.shields.io/github/contributors/afsanhq99/CSE471-Project)
-![boot-strap (tag)](https://img.shields.io/badge/bootstrap-4-yellow)
 
 A Simple project for `CSE471` Lab using `PHP` on top of `XAMPP`.
 
