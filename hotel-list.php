@@ -49,11 +49,7 @@ include('includes/config.php');
             <div class="room-bottom">
                 <h3>Hotel List</h3>
                 <br></br>
-                <a href="tour-history.php">
-                    <button type="button" style="background-color :chocolate;color:black;">
-                        <b>Bookings</b>
-                    </button>
-                </a>
+
                 <form action="searchhotel.php" class="form-inline md-form mr-auto mb-4">
                     <input class="form-control mr-sm-2" name='searched_name' types="text" placeholder="Search by name"
                         aria-label="Search" style="color:black;">
@@ -92,8 +88,8 @@ include('includes/config.php');
                 $cnt = 1;
                 if ($query->rowCount() > 0) {
                     foreach ($results as $result) {    ?>
-                <div class="rom-btm">
-                    <div class="col-md-3 room-left wow fadeInLeft animated" data-wow-delay=".5s">
+                <div class="rom-btm" style="border-radius: 10px; background-color:#e1fce2;">
+                    <div class=" col-md-3 room-left wow fadeInLeft animated" data-wow-delay=".5s">
                         <img src="admin/hotelimages/<?php echo htmlentities($result->HotelImage); ?>"
                             class="img-responsive" alt="">
                     </div>
@@ -102,10 +98,14 @@ include('includes/config.php');
                         <h6 style="color:black;"> Hotel Type : <?php echo htmlentities($result->HotelType); ?></h6>
                         <p style="color:black;"><b>Hotel Location :</b>
                             <?php echo htmlentities($result->HotelLocation); ?></p>
+                        <br></br>
                         <p style="color:black;"><b>Features</b> <?php echo htmlentities($result->HotelFetures); ?></p>
+                        <br></br>
+                        <p style="color:black;"><b>Details</b> <?php echo htmlentities($result->HotelDetails); ?></p>
+
                     </div>
                     <div class="col-md-3 room-right wow fadeInRight animated" data-wow-delay=".5s">
-                        <h5 style="color:black;">USD <?php echo htmlentities($result->HotelPrice); ?></h5>
+                        <h5 style="color:black;"> <?php echo htmlentities($result->HotelPrice); ?> Tk</h5>
                         <a href="hotel-details.php?pkgid=<?php echo htmlentities($result->HotelId); ?>"
                             class="view">Details</a>
                     </div>
@@ -114,7 +114,7 @@ include('includes/config.php');
 
                 <?php }
                 } ?>
-
+                <div><a href="hotel-list.php" class="view">View More Hotels</a></div>
 
 
             </div>

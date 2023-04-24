@@ -107,11 +107,23 @@ include('includes/config.php');
             # location=SELECT * from tbltourpackages WHERE PackageLocation like '$searched_name%''
 
             $searched_name = $_GET['searched_name'];
-            $searched_price1 = $_GET['searched_price1'];
-            $searched_price2 = $_GET['searched_price2'];
+            $searched_price1 = intval($_GET['searched_price1']);
+
+            $searched_price2 = intval($_GET['searched_price2']);
             $searched_location = $_GET['searched_location'];
-            $sql =
-                "SELECT * from tbltourpackages where PackageName like '$searched_name%' and   PackageLocation like '$searched_location%'";
+
+            if (isset($searched_name)) {
+                $sql
+                    = "SELECT * from tbltourpackages where PackageName like '%$searched_name%' ";
+            } elseif (isset($searched_location)) {
+                $sql = "SELECT * from tbltourpackages where PackageLocation like '%$searched_location%'";
+            } elseif (isset($searched_price1) and (isset($searched_price2))) {
+                $sql = "SELECT * from tbltourpackages where PackagePrice between  $searched_price1 and $searched_price2";
+            } else {
+                $sql = "SELECT * from tbltourpackages";
+            }
+
+
 
             $query = $dbh->prepare($sql);
             $query->execute();
@@ -134,7 +146,7 @@ include('includes/config.php');
                                 </pstyle=>
                         </div>
                         <div class="col-md-3 room-right wow fadeInRight animated" data-wow-delay=".5s">
-                            <h5>USD <?php echo htmlentities($result->PackagePrice); ?></h5>
+                            <h5 style="color:black;"> <?php echo htmlentities($result->PackagePrice); ?> Tk</h5>
                             <a href="package-details.php?pkgid=<?php echo htmlentities($result->PackageId); ?>" class="view">Details</a>
                         </div>
                         <div class="clearfix" style="background-color:#ddd;  border-radius:4px; border-radius: 10px ; box-shadow: 10px 5px 5px teal;" ;">

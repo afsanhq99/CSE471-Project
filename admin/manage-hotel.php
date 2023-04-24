@@ -118,7 +118,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     <td><?php echo htmlentities($result->HotelName); ?></td>
                                     <td><?php echo htmlentities($result->HotelType); ?></td>
                                     <td><?php echo htmlentities($result->HotelLocation); ?></td>
-                                    <td>$<?php echo htmlentities($result->HotelPrice); ?></td>
+                                    <td><?php echo htmlentities($result->HotelPrice); ?></td>
                                     <td><?php echo htmlentities($result->Creationdate); ?></td>
                                     <td><a href="update-hotel.php?pid=<?php echo htmlentities($result->HotelId); ?>"><button
                                                 type="button" class="btn btn-primary btn-block">View

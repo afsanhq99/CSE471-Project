@@ -115,9 +115,10 @@ if (strlen($_SESSION['login']) == 0) {
                     <?php if ($error) { ?><div class="errorWrap">
                         <strong>ERROR</strong>:<?php echo htmlentities($error); ?>
                     </div><?php } else if ($msg) { ?><div class="succWrap">
-                        <strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php } ?>
+                        <strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?>
+                    </div><?php } ?>
                     <p>
-                    <table border="1" width="100%">
+                    <table border="3" width="100%">
                         <tr align="center">
                             <th>#</th>
                             <th>Booking Id</th>

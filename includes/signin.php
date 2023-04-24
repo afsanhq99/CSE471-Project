@@ -1,24 +1,25 @@
 <?php
-include 'signup.php';
 session_start();
-if (isset($_POST['signin'])) {
-    $email = $_POST['email'];
-    $password = md5($_POST['password']);
-    $fname = $_POST['fname'];
-    $sql = "SELECT EmailId,Password,FullName FROM tblusers WHERE EmailId=:email and Password=:password";
-    $query = $dbh->prepare($sql);
-    $query->bindParam(':email', $email, PDO::PARAM_STR);
-    $query->bindParam(':password', $password, PDO::PARAM_STR);
+if(isset($_POST['signin']))
+{
+$email=$_POST['email'];
+$password=md5($_POST['password']);
+$sql ="SELECT EmailId,Password FROM tblusers WHERE EmailId=:email and Password=:password";
+$query= $dbh -> prepare($sql);
+$query-> bindParam(':email', $email, PDO::PARAM_STR);
+$query-> bindParam(':password', $password, PDO::PARAM_STR);
+$query-> execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+if($query->rowCount() > 0)
+{
+$_SESSION['login']=$_POST['email'];
+echo "<script type='text/javascript'> document.location = 'package-list.php'; </script>";
+} else{
+	
+	echo "<script>alert('Invalid Details');</script>";
 
-    $query->execute();
-    $results = $query->fetchAll(PDO::FETCH_OBJ);
-    if ($query->rowCount() > 0) {
-        $_SESSION['login'] = $_POST['fname'];
-        echo "<script type='text/javascript'> document.location = 'package-list.php'; </script>";
-    } else {
+}
 
-        echo "<script>alert('Invalid Details');</script>";
-    }
 }
 
 ?>
@@ -43,12 +44,10 @@ if (isset($_POST['signin'])) {
                         <div class="login-right">
                             <form method="post">
                                 <h3>Signin with your account </h3>
-                                <input type="text" name="fname" id="fname" placeholder="Enter your Full name"
-                                    required="">
-
-                                <input type="text" name="email" id="email" placeholder="Enter your Email" required="">
+                                <input type="text" name="email" id="email" placeholder="Enter your Email" required=""
+                                    style="color:black;">
                                 <input type="password" name="password" id="password" placeholder="Password" value=""
-                                    required="">
+                                    required="" style="color:black;">
                                 <h4><a href="forgot-password.php">Forgot password</a></h4>
 
                                 <input type="submit" name="signin" value="SIGNIN">
