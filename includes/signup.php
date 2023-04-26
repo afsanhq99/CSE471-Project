@@ -66,7 +66,7 @@ function checkAvailability() {
 
 
                                     <input type="text" style="color:black" value="" placeholder="Full Name" name="fname"
-                                        autocomplete="off" required="" pattern="[A-Za-z]+">
+                                        autocomplete="off" required="" >
                                     <input type="text" style="color:black" value="" placeholder="Mobile number"
                                         maxlength="11" name="mobilenumber" autocomplete="off" required=""
                                         pattern="\d{11}" maxlength="15">
